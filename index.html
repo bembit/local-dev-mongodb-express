@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms front-end</title>
+  <!-- Include HTMX library -->
+  <script src="https://unpkg.com/htmx.org/dist/ext/debug.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <!-- Add your CSS styles here -->
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div id="room-container" class="room-container">
+
+	<div id="loading-spinner" style="display: none;">Creating room...</div>
+	
+	<h1 id="room-title">Create room</h1>
+	<!-- this will be static port as we lack a templating engine -->
+	<form hx-post="http://localhost:8001/create-room" hx-target="#room-container" hx-swap="outerHTML" hx-ext="json" hx-vals="_csrf,name,description,region,maxParticipants">
+		<!-- Add a hidden input field for CSRF token -->
+		<input type="hidden" name="_csrf" value="your-csrf-token">
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="description">Description:</label>
+		<input type="text" id="description" name="description" required>
+
+		<label for="region">Region:</label>
+		<input type="text" id="region" name="region" required>
+
+		<label for="maxParticipants">Max Participants:</label>
+		<input type="number" id="maxParticipants" name="maxParticipants" required>
+
+		<!-- Use hx-trigger to specify when the form should be submitted -->
+		<button type="submit">Create room</button>
+	</form>
+
+</div>
+
+<!-- 
+<div id="room-form">
+
+</div> -->
+
+</body>
+</html>
