@@ -19,6 +19,7 @@ app.use(cors({
 mongoose.connect('mongodb://localhost:27017/room-test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   	console.log('Connected to MongoDB');
@@ -43,38 +44,6 @@ app.get('/rooms', async (req, res) => {
 	try {
 		const rooms = await Room.find();
 		res.json(rooms);
-	} catch (error) {
-		res.status(500).json({ error: error.message });
-	}
-});
-
-// Example route to get a specific Room by ID
-// Will use different identifier, not the mongodb _id
-app.get('/rooms/:id', async (req, res) => {
-	try {
-		const Room = await Room.findById(req.params.id);
-		res.json(Room);
-	} catch (error) {
-		res.status(500).json({ error: error.message });
-	}
-});
-
-// Example route to update a Room by ID
-app.put('/update-room/:id', async (req, res) => {
-    try {
-        const updatedRoom = await Room.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedRoom);
-    } catch (error) {
-       res.status(500).json({ error: error.message });
-    }
-});
-
-// Example route to delete a Room by ID
-// use roomId instead of mongodb _id
-app.delete('/delete-room/:id', async (req, res) => {
-	try {
-		const deletedRoom = await Room.findByIdAndDelete(req.params.id);
-		res.json(deletedRoom);
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}

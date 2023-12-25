@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 
 const { renderRoomHtml } = require('./renderRoomHtml');
 
-
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
@@ -35,7 +34,6 @@ app.post('/create-room', async (req, res) => {
 
 		// Example: Make a POST request to MongoDB server
 		const mongoDbResponse = await axios.post(`http://localhost:${process.env.DB_PORT || 8000}/create-room`, {
-			// roomId,
 			name,
 			description,
 			region,
@@ -44,29 +42,23 @@ app.post('/create-room', async (req, res) => {
 	
 		// Check the response from MongoDB server
 		if (mongoDbResponse.status === 200) {
-			// Your processing logic here, e.g., handling the MongoDB server response
 			console.log('MongoDB server response:', mongoDbResponse.data);
 			// Extract the room data from the MongoDB response
   			const roomData = mongoDbResponse.data; 
-			// Send a success response
-			// res.status(200).json({ message: 'Room created successfully', room: roomData });
 			// Render HTML for the room
 			const roomHtml = renderRoomHtml(roomData);
-			// Send the HTML response to the client
 			// Playing with server-side delays
 			const delayDuration = 700;
 			await new Promise(resolve => setTimeout(resolve, delayDuration));
 			
+			// Send the HTML response to the client
 			res.status(200).send(roomHtml);
-			// console.log(roomData)
 		} else {
 			// Handle the case when the MongoDB server returns an error
 			console.error('Error from MongoDB server:', mongoDbResponse.data);
-			// res.status(500).json({ error: 'Error from MongoDB server' });
 			res.status(500).send('<p>Error from MongoDB server</p>');
 		}
 	} catch (error) {
-		// Log the error
 		console.error(error);
 		// Send an error response
 		res.status(500).json({ error: 'Internal Server Error' });

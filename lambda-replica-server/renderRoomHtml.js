@@ -1,13 +1,11 @@
 function renderRoomHtml(roomData) {
-    // Assuming roomData has properties like roomId, name, desc, etc.
+
     const { roomId, name, description, maxParticipants, teams } = roomData;
 
     // Create an HTML string for the room
     const roomHtml = `
         <div id="${roomId}" class="room-container">
             <h2>Room Details</h2>
-            <button id="updateRoomButton">Update Room</button>
-            <button id="deleteRoomButton">Delete Room</button>
             <p><strong>Room ID:</strong> ${roomId}</p>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Description:</strong> ${description}</p>

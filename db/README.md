@@ -1,10 +1,8 @@
 # Room Management System
 
-## track read write speed and add testing
-
 ## Overview
 
-This project is a simple Room Management System implemented using Node.js, Express, and MongoDB. It provides basic CRUD operations for managing lobbies.
+This project is a simple Room Management System implemented using Node.js, Express, and MongoDB. It provides basic create and read operations.
 
 ## Getting Started
 
