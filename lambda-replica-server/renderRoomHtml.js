@@ -6,6 +6,8 @@ function renderRoomHtml(roomData) {
     const roomHtml = `
         <div id="${roomId}" class="room-container">
             <h2>Room Details</h2>
+            <button id="updateRoomButton">Update Room</button>
+            <button id="deleteRoomButton">Delete Room</button>
             <p><strong>Room ID:</strong> ${roomId}</p>
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Description:</strong> ${description}</p>

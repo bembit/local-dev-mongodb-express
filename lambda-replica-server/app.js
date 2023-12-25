@@ -20,7 +20,7 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// default post request
+// create-room post request
 
 app.post('/create-room', async (req, res) => {
 	try {
@@ -56,7 +56,7 @@ app.post('/create-room', async (req, res) => {
 			// Playing with server-side delays
 			const delayDuration = 700;
 			await new Promise(resolve => setTimeout(resolve, delayDuration));
-			// We are returning HTML in the response, so we don't need to parse incoming request body, but I'm leaving this here for reference
+			
 			res.status(200).send(roomHtml);
 			// console.log(roomData)
 		} else {

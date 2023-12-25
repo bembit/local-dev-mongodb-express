@@ -70,6 +70,7 @@ app.put('/update-room/:id', async (req, res) => {
 });
 
 // Example route to delete a Room by ID
+// use roomId instead of mongodb _id
 app.delete('/delete-room/:id', async (req, res) => {
 	try {
 		const deletedRoom = await Room.findByIdAndDelete(req.params.id);
