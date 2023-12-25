@@ -42,11 +42,3 @@ Or use whatever you like, I configured CORS to allow communication between these
 **You can change these in the .env file.**
 
 7. You should be able to see the HTMX form on localhost:3000 and use the replica function to post to the database and see the results.
-
-### Extras, notes to self:
-
-add http server 3000 cors, everything
-finish spinner
-trim sensitive, push own repo as local dev env htmx
-build another server / route for delete.
-get search bar with lobbies
