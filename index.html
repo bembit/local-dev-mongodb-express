@@ -6,15 +6,14 @@
   <title>Rooms front-end</title>
   <!-- Include HTMX library -->
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  <!-- Add your CSS styles here -->
-	<link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
 <div id="room-container" class="room-container">
 
 	<h1 id="room-title">Create room</h1>
-	<!-- this will be static port as we lack a templating engine -->
+
 	<form hx-post="http://localhost:8001/create-room" hx-target="#room-container" hx-swap="outerHTML" hx-ext="json">
 
 		<label for="name">Name:</label>
@@ -29,7 +28,7 @@
 		<label for="maxParticipants">Max Participants:</label>
 		<input type="number" id="maxParticipants" name="maxParticipants" required>
 
-		<!-- Use hx-trigger to specify when the form should be submitted -->
+
 		<button type="submit">Create room</button>
 	</form>
 
