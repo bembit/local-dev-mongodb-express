@@ -2,7 +2,7 @@
 
 The two main ideas are to replicate "serverless" locally for testing and understanding, and to see how far can I push the limits of Front-end (or Back-end really ) with only using HTMX.
 
-The `Front-end on port 3000` sends a post request to the `Lambda-replica on port 8001`, validates the post, and if the status code is 200 it posts the request to write to the `Database on port 8000`, and `sends back some html` to the HTMX Front-end.
+The `Front-end on port 3000` sends a post request to the `Lambda-replica on port 8001`, validates the post, writes to the `Database on port 8000`, and `sends back some html` to the HTMX Front-end.
 
 **Technologies Used:**
 
