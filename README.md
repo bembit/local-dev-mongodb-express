@@ -1,14 +1,4 @@
-### Short Project Description
-
-The two main ideas are to replicate "serverless" locally for testing and understanding, and to see how far can I push the limits of Front-end (or Back-end really ) with only using HTMX.
-
-The `Front-end on port 3000` sends a post request to the `Lambda-replica on port 8001`, validates the post, writes to the `Database on port 8000`, and `sends back some html` to the HTMX Front-end.
-
-**Technologies Used:**
-
-Front-end: HTML, HTMX, JavaScript
-Back-end: Node.js, Express.js, MongoDB
-Additional Libraries: Mongoose (for MongoDB), Axios (for HTTP requests), CORS (for CORS of course ^_^), dotenv (to change port numbers easily), uuidv4 (to generate some additional unique keys for testing), nodemon (for auto-restart server on changes).  
+Got tired of setting up a new DB / NodeJS environments for hours every time I just quickly wanted to test some backend functionalities.
 
 ### Getting Started
 
