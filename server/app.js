@@ -9,7 +9,7 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 const app = express();
-const PORT = process.env.REPLICA_SERVER_PORT;
+const PORT = process.env.SERVER_PORT;
 
 app.use(cors({
 	origin: `http://localhost:${process.env.CLIENT_PORT || 3000}`,
@@ -66,5 +66,5 @@ app.post('/create-room', async (req, res) => {
 });
 
 app.listen(PORT, () => {
- 	 console.log(`Lambda Replica Server is running at http://localhost:${PORT}`);
+ 	 console.log(`Server is running at http://localhost:${PORT}`);
 });

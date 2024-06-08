@@ -9,9 +9,9 @@ require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const app = express();
 const PORT = process.env.DB_PORT;
 
-// Enable CORS for the Replica Server using port 8001
+// Enable CORS for the Server using port 8001
 app.use(cors({
-	origin: `http://localhost:${process.env.REPLICA_SERVER_PORT || 8001}`,
+	origin: `http://localhost:${process.env.SERVER_PORT || 8001}`,
 	methods: 'POST',
   }));
 

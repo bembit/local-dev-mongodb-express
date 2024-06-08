@@ -3,7 +3,7 @@ Got tired of setting up a new DB / NodeJS environments for hours every time I ju
 ### Getting Started
 
 1. Clone the repository.
-2. Install dependencies using npm install in both `db` and `lambda-replica-server` folders.
+2. Install dependencies using npm install in both `db` and `server` folders.
 2. Optional - Docker - Work In Progress
 3. Install MongoDB locally. I used 7.0.4 on Windows with Compass.
 4. Start the MongoDB Server. **Default port is 8000. You can change it in the .env file.**
@@ -13,9 +13,9 @@ node app.js
 # or use the nodemon scripts with
 npm run dev
 ```
-5. Start the Lambda Replica Server. **Default port is 8001. You can change it in the .env file.**
+5. Start the server. **Default port is 8001. You can change it in the .env file.**
 ```bash
-cd lambda-replica-server
+cd server
 node app.js
 # or use the nodemon scripts with
 npm run dev
@@ -31,4 +31,4 @@ http-server -p 3000
 Or use whatever you like, I configured CORS to allow communication between these three ports. 3000, 8000, 8001 by default.
 **You can change these in the .env file.**
 
-7. You should be able to see the HTMX form on localhost:3000 and use the replica function to post to the database and see the results.
+7. You should be able to see the HTMX form on localhost:3000 and use the server to post to the database and see the results.
